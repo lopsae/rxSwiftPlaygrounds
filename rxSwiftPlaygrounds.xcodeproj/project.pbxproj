@@ -28,10 +28,10 @@
 		A18D593B57FA6815BB8A3CA8 /* Pods_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56751EF20605BC7007232CE /* rxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = rxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56751F220605BC7007232CE /* rxSwiftPlaygrounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rxSwiftPlaygrounds.h; sourceTree = "<group>"; };
-		E56751F320605BC7007232CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E56751F320605BC7007232CE /* projectInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = projectInfo.plist; sourceTree = "<group>"; };
 		E56751FE2060752D007232CE /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56752002060752D007232CE /* tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
-		E56752022060752D007232CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E56752022060752D007232CE /* testsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = testsInfo.plist; sourceTree = "<group>"; };
 		E93DFBCE421CFA5CAC60BFCE /* Pods-tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				E56751F120605BC7007232CE /* rxSwiftPlaygrounds */,
+				E5675208206077CB007232CE /* project */,
 				E56751FF2060752D007232CE /* tests */,
 				E56751F020605BC7007232CE /* Products */,
 				B90008B48D4FC38E817FECD7 /* Pods */,
@@ -96,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				E56751F220605BC7007232CE /* rxSwiftPlaygrounds.h */,
-				E56751F320605BC7007232CE /* Info.plist */,
 			);
 			path = rxSwiftPlaygrounds;
 			sourceTree = "<group>";
@@ -105,9 +105,17 @@
 			isa = PBXGroup;
 			children = (
 				E56752002060752D007232CE /* tests.swift */,
-				E56752022060752D007232CE /* Info.plist */,
 			);
 			path = tests;
+			sourceTree = "<group>";
+		};
+		E5675208206077CB007232CE /* project */ = {
+			isa = PBXGroup;
+			children = (
+				E56751F320605BC7007232CE /* projectInfo.plist */,
+				E56752022060752D007232CE /* testsInfo.plist */,
+			);
+			path = project;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,7 +379,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = rxSwiftPlaygrounds/Info.plist;
+				INFOPLIST_FILE = project/projectInfo.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lopsae.rxSwiftPlaygrounds;
@@ -387,7 +395,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = tests/Info.plist;
+				INFOPLIST_FILE = project/testsInfo.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lopsae.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
