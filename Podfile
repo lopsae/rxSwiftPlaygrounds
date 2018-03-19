@@ -3,10 +3,10 @@ use_frameworks!
 
 
 platform :osx, "10.12"
+workspace 'workspace'
 project 'rxSwiftPlaygrounds'
+target 'tests'
 
 
-target 'tests' do
-  pod 'RxSwift'
-end
+pod 'RxSwift'
 
