@@ -1,7 +1,7 @@
 
 
 import RxSwift
-import rxSwiftPlaygrounds
+import RxSwiftPlaygrounds
 
 var str = "Hello, playground"
 Observable.just("Cosa").do(onNext: {

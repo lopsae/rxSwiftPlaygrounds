@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A98E27003768B6DA8CC82B3B /* Pods_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18D593B57FA6815BB8A3CA8 /* Pods_tests.framework */; };
-		E56752012060752D007232CE /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56752002060752D007232CE /* tests.swift */; };
-		E56752032060752D007232CE /* rxSwiftPlaygrounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56751EF20605BC7007232CE /* rxSwiftPlaygrounds.framework */; };
+		E56752012060752D007232CE /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56752002060752D007232CE /* Tests.swift */; };
+		E56752032060752D007232CE /* RxSwiftPlaygrounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56751EF20605BC7007232CE /* RxSwiftPlaygrounds.framework */; };
 		E567520B206082F9007232CE /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E567520A206082F9007232CE /* Tools.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,11 +26,11 @@
 /* Begin PBXFileReference section */
 		1325D3581F0E8C23F10AA3C2 /* Pods_rxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A18D593B57FA6815BB8A3CA8 /* Pods_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E56751EF20605BC7007232CE /* rxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = rxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E56751F320605BC7007232CE /* projectInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = projectInfo.plist; sourceTree = "<group>"; };
-		E56751FE2060752D007232CE /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E56752002060752D007232CE /* tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
-		E56752022060752D007232CE /* testsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = testsInfo.plist; sourceTree = "<group>"; };
+		E56751EF20605BC7007232CE /* RxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E56751F320605BC7007232CE /* ProjectInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ProjectInfo.plist; sourceTree = "<group>"; };
+		E56751FE2060752D007232CE /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E56752002060752D007232CE /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		E56752022060752D007232CE /* TestsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TestsInfo.plist; sourceTree = "<group>"; };
 		E567520A206082F9007232CE /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		E93DFBCE421CFA5CAC60BFCE /* Pods-tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E56752032060752D007232CE /* rxSwiftPlaygrounds.framework in Frameworks */,
+				E56752032060752D007232CE /* RxSwiftPlaygrounds.framework in Frameworks */,
 				A98E27003768B6DA8CC82B3B /* Pods_tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,9 +75,9 @@
 		E56751E520605BC7007232CE = {
 			isa = PBXGroup;
 			children = (
-				E56751F120605BC7007232CE /* sources */,
-				E5675208206077CB007232CE /* project */,
-				E56751FF2060752D007232CE /* tests */,
+				E56751F120605BC7007232CE /* Sources */,
+				E5675208206077CB007232CE /* Support */,
+				E56751FF2060752D007232CE /* Tests */,
 				E56751F020605BC7007232CE /* Products */,
 				B90008B48D4FC38E817FECD7 /* Pods */,
 				5B49327EA0BDBEEC7FB08164 /* Frameworks */,
@@ -87,35 +87,35 @@
 		E56751F020605BC7007232CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E56751EF20605BC7007232CE /* rxSwiftPlaygrounds.framework */,
-				E56751FE2060752D007232CE /* tests.xctest */,
+				E56751EF20605BC7007232CE /* RxSwiftPlaygrounds.framework */,
+				E56751FE2060752D007232CE /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E56751F120605BC7007232CE /* sources */ = {
+		E56751F120605BC7007232CE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				E567520A206082F9007232CE /* Tools.swift */,
 			);
-			path = sources;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		E56751FF2060752D007232CE /* tests */ = {
+		E56751FF2060752D007232CE /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E56752002060752D007232CE /* tests.swift */,
+				E56752002060752D007232CE /* Tests.swift */,
 			);
-			path = tests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		E5675208206077CB007232CE /* project */ = {
+		E5675208206077CB007232CE /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				E56751F320605BC7007232CE /* projectInfo.plist */,
-				E56752022060752D007232CE /* testsInfo.plist */,
+				E56751F320605BC7007232CE /* ProjectInfo.plist */,
+				E56752022060752D007232CE /* TestsInfo.plist */,
 			);
-			path = project;
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,9 +131,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E56751EE20605BC7007232CE /* rxSwiftPlaygrounds */ = {
+		E56751EE20605BC7007232CE /* RxSwiftPlaygrounds */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E56751F720605BC7007232CE /* Build configuration list for PBXNativeTarget "rxSwiftPlaygrounds" */;
+			buildConfigurationList = E56751F720605BC7007232CE /* Build configuration list for PBXNativeTarget "RxSwiftPlaygrounds" */;
 			buildPhases = (
 				E56751EA20605BC7007232CE /* Sources */,
 				E56751EB20605BC7007232CE /* Frameworks */,
@@ -144,14 +144,14 @@
 			);
 			dependencies = (
 			);
-			name = rxSwiftPlaygrounds;
+			name = RxSwiftPlaygrounds;
 			productName = rxSwiftPlaygrounds;
-			productReference = E56751EF20605BC7007232CE /* rxSwiftPlaygrounds.framework */;
+			productReference = E56751EF20605BC7007232CE /* RxSwiftPlaygrounds.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E56751FD2060752D007232CE /* tests */ = {
+		E56751FD2060752D007232CE /* Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E56752072060752D007232CE /* Build configuration list for PBXNativeTarget "tests" */;
+			buildConfigurationList = E56752072060752D007232CE /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
 				8C41C92793442CF8718BCD75 /* [CP] Check Pods Manifest.lock */,
 				E56751FA2060752D007232CE /* Sources */,
@@ -165,9 +165,9 @@
 			dependencies = (
 				E56752052060752D007232CE /* PBXTargetDependency */,
 			);
-			name = tests;
+			name = Tests;
 			productName = tests;
-			productReference = E56751FE2060752D007232CE /* tests.xctest */;
+			productReference = E56751FE2060752D007232CE /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -191,7 +191,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E56751E920605BC7007232CE /* Build configuration list for PBXProject "rxSwiftPlaygrounds" */;
+			buildConfigurationList = E56751E920605BC7007232CE /* Build configuration list for PBXProject "RxSwiftPlaygrounds" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -203,8 +203,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E56751EE20605BC7007232CE /* rxSwiftPlaygrounds */,
-				E56751FD2060752D007232CE /* tests */,
+				E56751EE20605BC7007232CE /* RxSwiftPlaygrounds */,
+				E56751FD2060752D007232CE /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -293,7 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E56752012060752D007232CE /* tests.swift in Sources */,
+				E56752012060752D007232CE /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +302,7 @@
 /* Begin PBXTargetDependency section */
 		E56752052060752D007232CE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E56751EE20605BC7007232CE /* rxSwiftPlaygrounds */;
+			target = E56751EE20605BC7007232CE /* RxSwiftPlaygrounds */;
 			targetProxy = E56752042060752D007232CE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -381,10 +381,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = project/projectInfo.plist;
+				INFOPLIST_FILE = Support/ProjectInfo.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lopsae.rxSwiftPlaygrounds;
+				PRODUCT_BUNDLE_IDENTIFIER = lopsae.RxSwiftPlaygrounds;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -399,7 +399,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = project/testsInfo.plist;
+				INFOPLIST_FILE = Support/TestsInfo.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lopsae.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,7 +410,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E56751E920605BC7007232CE /* Build configuration list for PBXProject "rxSwiftPlaygrounds" */ = {
+		E56751E920605BC7007232CE /* Build configuration list for PBXProject "RxSwiftPlaygrounds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E56751F520605BC7007232CE /* Debug */,
@@ -418,7 +418,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E56751F720605BC7007232CE /* Build configuration list for PBXNativeTarget "rxSwiftPlaygrounds" */ = {
+		E56751F720605BC7007232CE /* Build configuration list for PBXNativeTarget "RxSwiftPlaygrounds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E56751F820605BC7007232CE /* Debug */,
@@ -426,7 +426,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E56752072060752D007232CE /* Build configuration list for PBXNativeTarget "tests" */ = {
+		E56752072060752D007232CE /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E56752062060752D007232CE /* Debug */,
