@@ -9,3 +9,9 @@ public func check<T: Equatable>(actual: T, expected: T) -> String {
   return "🛑"
 }
 
+
+public func example(_ description: String, action: () -> Void) {
+  print("\n⭕️ \(description)")
+  action()
+}
+
