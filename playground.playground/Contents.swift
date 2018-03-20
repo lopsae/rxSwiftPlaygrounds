@@ -1,10 +1,12 @@
-//: Playground - noun: a place where people can play
+
 
 import RxSwift
+import rxSwiftPlaygrounds
 
 var str = "Hello, playground"
 Observable.just("Cosa").do(onNext: {
   string in
+  check(actual: string, expected: "Cosa")
   print(string)
 }).subscribe()
 
