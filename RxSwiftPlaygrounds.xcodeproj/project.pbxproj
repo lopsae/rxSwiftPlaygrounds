@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5D84E91F4D7148124620A7A4 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8C1D124DC457E159069E34 /* Pods_Tests.framework */; };
-		A98E27003768B6DA8CC82B3B /* Pods_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18D593B57FA6815BB8A3CA8 /* Pods_tests.framework */; };
 		E56752012060752D007232CE /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56752002060752D007232CE /* Tests.swift */; };
 		E56752032060752D007232CE /* RxSwiftPlaygrounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56751EF20605BC7007232CE /* RxSwiftPlaygrounds.framework */; };
 		E567520B206082F9007232CE /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E567520A206082F9007232CE /* Tools.swift */; };
@@ -26,8 +25,6 @@
 
 /* Begin PBXFileReference section */
 		0A8C1D124DC457E159069E34 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1325D3581F0E8C23F10AA3C2 /* Pods_rxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A18D593B57FA6815BB8A3CA8 /* Pods_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B7FF1F192FC8958298429E /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E56751EF20605BC7007232CE /* RxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56751F320605BC7007232CE /* ProjectInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ProjectInfo.plist; sourceTree = "<group>"; };
@@ -35,7 +32,6 @@
 		E56752002060752D007232CE /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		E56752022060752D007232CE /* TestsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TestsInfo.plist; sourceTree = "<group>"; };
 		E567520A206082F9007232CE /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
-		E93DFBCE421CFA5CAC60BFCE /* Pods-tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +47,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E56752032060752D007232CE /* RxSwiftPlaygrounds.framework in Frameworks */,
-				A98E27003768B6DA8CC82B3B /* Pods_tests.framework in Frameworks */,
 				5D84E91F4D7148124620A7A4 /* Pods_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,8 +57,6 @@
 		5B49327EA0BDBEEC7FB08164 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1325D3581F0E8C23F10AA3C2 /* Pods_rxSwiftPlaygrounds.framework */,
-				A18D593B57FA6815BB8A3CA8 /* Pods_tests.framework */,
 				0A8C1D124DC457E159069E34 /* Pods_Tests.framework */,
 			);
 			name = Frameworks;
@@ -72,7 +65,6 @@
 		B90008B48D4FC38E817FECD7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E93DFBCE421CFA5CAC60BFCE /* Pods-tests.debug.xcconfig */,
 				C6B7FF1F192FC8958298429E /* Pods-Tests.debug.xcconfig */,
 			);
 			name = Pods;
