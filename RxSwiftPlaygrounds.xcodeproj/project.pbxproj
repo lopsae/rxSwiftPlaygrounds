@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D84E91F4D7148124620A7A4 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A8C1D124DC457E159069E34 /* Pods_Tests.framework */; };
+		DEC8271E35C238F34D7E9AAB /* Pods_RxSwiftPlaygrounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F610333F50DCBFE322E9665 /* Pods_RxSwiftPlaygrounds.framework */; };
 		E56752012060752D007232CE /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56752002060752D007232CE /* Tests.swift */; };
 		E56752032060752D007232CE /* RxSwiftPlaygrounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56751EF20605BC7007232CE /* RxSwiftPlaygrounds.framework */; };
 		E567520B206082F9007232CE /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E567520A206082F9007232CE /* Tools.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		0A8C1D124DC457E159069E34 /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F610333F50DCBFE322E9665 /* Pods_RxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B7FF1F192FC8958298429E /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E56751EF20605BC7007232CE /* RxSwiftPlaygrounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftPlaygrounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E56751F320605BC7007232CE /* ProjectInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ProjectInfo.plist; sourceTree = "<group>"; };
@@ -32,6 +34,7 @@
 		E56752002060752D007232CE /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		E56752022060752D007232CE /* TestsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TestsInfo.plist; sourceTree = "<group>"; };
 		E567520A206082F9007232CE /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		F0048BCD1E53C46632EE9028 /* Pods-RxSwiftPlaygrounds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlaygrounds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEC8271E35C238F34D7E9AAB /* Pods_RxSwiftPlaygrounds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				0A8C1D124DC457E159069E34 /* Pods_Tests.framework */,
+				6F610333F50DCBFE322E9665 /* Pods_RxSwiftPlaygrounds.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -66,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				C6B7FF1F192FC8958298429E /* Pods-Tests.debug.xcconfig */,
+				F0048BCD1E53C46632EE9028 /* Pods-RxSwiftPlaygrounds.debug.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -133,10 +139,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E56751F720605BC7007232CE /* Build configuration list for PBXNativeTarget "RxSwiftPlaygrounds" */;
 			buildPhases = (
+				0DC0DC55C1E5DD711D6E5C05 /* [CP] Check Pods Manifest.lock */,
 				E56751EA20605BC7007232CE /* Sources */,
 				E56751EB20605BC7007232CE /* Frameworks */,
 				E56751EC20605BC7007232CE /* Headers */,
 				E56751ED20605BC7007232CE /* Resources */,
+				000BDF34E6B6628CEE0E4BF3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -225,6 +233,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		000BDF34E6B6628CEE0E4BF3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		09AC39242C742714F7B2AB5E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +261,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0DC0DC55C1E5DD711D6E5C05 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxSwiftPlaygrounds-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		33C0C9BEB21827185CFF1CC7 /* [CP] Embed Pods Frameworks */ = {
@@ -368,6 +409,7 @@
 		};
 		E56751F820605BC7007232CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0048BCD1E53C46632EE9028 /* Pods-RxSwiftPlaygrounds.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
