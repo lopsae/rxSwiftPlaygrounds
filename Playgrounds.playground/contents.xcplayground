@@ -3,6 +3,9 @@
     <pages>
         <page name='Start'/>
         <page name='Connections&amp;Cold'/>
+        <page name='SyncronousShare'/>
+        <page name='AsyncShare'/>
+        <page name='HotObservables'/>
         <page name='TODO'/>
         <page name='Chains'/>
     </pages>

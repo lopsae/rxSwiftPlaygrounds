@@ -52,7 +52,7 @@ DispatchQueue.main.asyncAfter(deadline: .now()) {
 }
 
 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-  // This connection will produce its own elements
+  // This connection will produce new elements in its own independent timeline
   coldBeat.take(3).subscribe(onNext: {
     print("✴️Observer: \($0)")
   })
