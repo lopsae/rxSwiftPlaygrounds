@@ -8,7 +8,7 @@ project 'RxSwiftPlaygrounds'
 
 
 def all_pods
-  pod 'RxSwift'
+  pod 'RxSwift', '~> 4.5.0'
 end
 
 
