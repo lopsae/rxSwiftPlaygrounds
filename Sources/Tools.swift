@@ -15,3 +15,8 @@ public func example(_ description: String, action: () -> Void) {
   action()
 }
 
+
+struct Play {
+
+}
+

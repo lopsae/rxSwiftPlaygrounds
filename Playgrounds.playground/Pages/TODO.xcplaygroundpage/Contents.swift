@@ -5,6 +5,9 @@ import RxSwiftPlaygrounds
 
 import RxSwift
 
+// Other experiments and pending TODO's.
+// Code in this file may be incomplete or in-progress.
+
 PlaygroundPage.current.needsIndefiniteExecution = true
 
 

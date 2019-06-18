@@ -3,6 +3,8 @@
 import PlaygroundSupport
 import RxSwift
 
+// Experiments for a chaining syntax for tying observables together
+
 PlaygroundPage.current.needsIndefiniteExecution = true
 
 
