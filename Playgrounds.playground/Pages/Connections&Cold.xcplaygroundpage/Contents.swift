@@ -9,11 +9,11 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 print("⭕️ Single Serve Cold Observable")
 
-// This cold observable is like a pasive factory that will create
-// 🍦 only until connected.
+// This cold observable is a pasive factory that will create a "🍦" only until
+// connected.
 let coldServe = Observable<String>.create {
   observer in
-  print("🍦ColdCream ⚡️Connected, serving!")
+  print("🍦ColdServe ⚡️Connected, serving!")
   observer.onNext("🍦")
   observer.onCompleted()
   return Disposables.create()
@@ -32,7 +32,9 @@ coldServe.subscribe(onNext: {
 
 print("⭕️ Interval Cold Observable")
 
-// The interval for this cold observable will only start until connected
+// The observable created with `interval` is also a cold observable. Elements
+// are emitted and time counted only until there is a connection, and for
+// every individual connection.
 let coldBeat = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
 .do(onSubscribed: {
   print("❄️ColdBeat: ⚡️connected")
@@ -44,7 +46,7 @@ let coldBeat = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
 
 DispatchQueue.main.asyncAfter(deadline: .now()) {
   // This connection will produce some elements
-  coldBeat.take(2).subscribe(onNext: {
+  coldBeat.take(3).subscribe(onNext: {
     print("✳️Observer: \($0)")
   })
 }
