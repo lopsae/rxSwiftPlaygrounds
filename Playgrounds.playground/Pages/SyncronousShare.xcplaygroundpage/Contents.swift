@@ -69,5 +69,19 @@ sharedPastries.subscribe(onNext: {
 })
 
 
+print("⭕️ Two connections without sharing")
+
+// different behaviours with foerever or whileConnected
+sharedPastries = pastries.share(scope: .forever)
+
+let delayed = Observable.just("⏱").delay(0.5, scheduler: MainScheduler.instance)
+let untilPastries = delayed.takeUntil(sharedPastries)
+// different behaviours with different order
+let merged = Observable.merge(untilPastries, sharedPastries)
+
+merged.subscribe(onNext: {
+  print("🔽Merge: \($0)")
+})
+
 print("👑 finis coronat opus~")
 
