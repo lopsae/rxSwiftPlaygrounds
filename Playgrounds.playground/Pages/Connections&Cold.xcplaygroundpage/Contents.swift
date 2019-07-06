@@ -7,27 +7,28 @@ import RxSwiftPlaygrounds
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
-print("⭕️ Single Serve Cold Observable")
 
-// This cold observable is a pasive factory that will create a "🍦" only until
-// connected.
-let coldServe = Observable<String>.create {
-  observer in
-  print("🍦ColdServe ⚡️Connected, serving!")
-  observer.onNext("🍦")
-  observer.onCompleted()
-  return Disposables.create()
+example("Single Serve Cold Observable") { print in
+  // This cold observable is a pasive factory that will create a "🍦" only until
+  // connected.
+  let coldServe = Observable<String>.create {
+    observer in
+    print("🍦ColdServe ⚡️Connected, serving!")
+    observer.onNext("🍦")
+    observer.onCompleted()
+    return Disposables.create()
+  }
+
+  // This will create one serving
+  coldServe.subscribe(onNext: {
+    print("1️⃣One: \($0)")
+  })
+
+  // This will create another serving
+  coldServe.subscribe(onNext: {
+    print("2️⃣Two: \($0)")
+  })
 }
-
-// This will create one serving
-coldServe.subscribe(onNext: {
-  print("1️⃣One: \($0)")
-})
-
-// This will create another serving
-coldServe.subscribe(onNext: {
-  print("2️⃣Two: \($0)")
-})
 
 
 print("⭕️ Interval Cold Observable")

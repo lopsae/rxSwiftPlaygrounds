@@ -10,12 +10,6 @@ public func check<T: Equatable>(actual: T, expected: T) -> String {
 }
 
 
-public func example(_ description: String, action: () -> Void) {
-  print("\n⭕️ \(description)")
-  action()
-}
-
-
 struct Play {
 
 }
