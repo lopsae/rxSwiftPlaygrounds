@@ -1,14 +1,15 @@
 
 
-public typealias Printer = (String) -> Void
+public typealias PrintClosure = (String) -> Void
 
-public func example(_ title: String, closure: ((@escaping Printer) -> Void)) {
-  let printer: Printer = { message in
+public func example(_ title: String, closure: ((@escaping PrintClosure) -> Void)) {
+  // TODO: make indentation configurable
+  let printer: PrintClosure = { message in
     print("  \(message)")
   }
 
-  print()
-  print("⭕️ \(title)")
+  print() // Separation line
+  print(title)
   closure(printer)
 }
 
