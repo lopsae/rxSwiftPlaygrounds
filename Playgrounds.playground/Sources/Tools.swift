@@ -1,5 +1,8 @@
 
 
+import PlaygroundSupport
+
+
 public typealias PrintClosure = (String) -> Void
 
 public func example(_ title: String, closure: ((@escaping PrintClosure) -> Void)) {
@@ -11,5 +14,17 @@ public func example(_ title: String, closure: ((@escaping PrintClosure) -> Void)
   print() // Separation line
   print(title)
   closure(printer)
+}
+
+
+public func done👑(continueExecution: Bool = false) {
+  print("👑 finis coronat opus~ (done executing playground)", terminator: "")
+  if continueExecution {
+    PlaygroundPage.current.needsIndefiniteExecution = true
+    print (" 🔄(but still running)")
+  } else {
+    print(" 🛑")
+  }
+
 }
 
