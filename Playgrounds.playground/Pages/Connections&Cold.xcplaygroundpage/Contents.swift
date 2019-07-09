@@ -18,16 +18,17 @@ example("⭕️ Single Serve Cold Observable") { print in
 
   // This will create one serving
   coldServe.subscribe(onNext: {
-    print("1️⃣ One: \($0)")
+    print("❇️ First: \($0)")
   })
 
   // This will create another serving
   coldServe.subscribe(onNext: {
-    print("2️⃣ Two: \($0)")
+    print("✴️ Second: \($0)")
   })
 }
 
 
+// TODO: make delayed example
 example("⭕️ Interval Cold Observable") { print in
   let interval: TimeInterval = 2
 
@@ -46,14 +47,14 @@ example("⭕️ Interval Cold Observable") { print in
   DispatchQueue.main.asyncAfter(deadline: .now()) {
     // This connection will produce some elements
     coldBeat.take(3).subscribe(onNext: {
-      print("✳️ Observer: \($0)")
+      print("❇️ First: \($0)")
     })
   }
 
   DispatchQueue.main.asyncAfter(deadline: .now() + interval * 1.5) {
     // This connection will produce new elements in its own independent timeline
     coldBeat.take(3).subscribe(onNext: {
-      print("✴️ Observer: \($0)")
+      print("✴️ Delayed: \($0)")
     })
   }
 }

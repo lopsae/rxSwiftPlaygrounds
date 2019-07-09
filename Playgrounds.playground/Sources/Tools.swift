@@ -5,21 +5,30 @@ import PlaygroundSupport
 
 public typealias PrintClosure = (String) -> Void
 
-public func example(_ title: String, closure: ((@escaping PrintClosure) -> Void)) {
-  // TODO: make indentation configurable
+
+/// Creates a closure with a `print` function and the given `prefix` as
+/// indentation.
+public func indent(prefix:String = "  ", closure: ((@escaping PrintClosure) -> Void)) {
   let printer: PrintClosure = { message in
     print("  \(message)")
   }
 
-  print("\n\(title)")
   closure(printer)
 }
 
 
+// Prints the given `title` and creates a closure with a `print` function
+// using the default indentation.
+public func example(_ title: String, closure: ((@escaping PrintClosure) -> Void)) {
+  print("\n\(title)")
+  indent(closure: closure)
+}
+
+
 public func done👑() {
-  print("👑 done executing playground code ~finis coronat opus")
+  print("\n⚠️ Done executing playground code ~finis coronat opus 👑")
   if PlaygroundPage.current.needsIndefiniteExecution {
-    print ("🔄 but running indefinitely")
+    print ("🔄 Playground thread running indefinitely")
   }
 }
 
