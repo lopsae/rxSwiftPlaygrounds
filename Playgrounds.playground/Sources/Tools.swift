@@ -11,20 +11,15 @@ public func example(_ title: String, closure: ((@escaping PrintClosure) -> Void)
     print("  \(message)")
   }
 
-  print() // Separation line
-  print(title)
+  print("\n\(title)")
   closure(printer)
 }
 
 
-public func done👑(continueExecution: Bool = false) {
-  print("👑 finis coronat opus~ (done executing playground)", terminator: "")
-  if continueExecution {
-    PlaygroundPage.current.needsIndefiniteExecution = true
-    print (" 🔄(but still running)")
-  } else {
-    print(" 🛑")
+public func done👑() {
+  print("👑 done executing playground code ~finis coronat opus")
+  if PlaygroundPage.current.needsIndefiniteExecution {
+    print ("🔄 but running indefinitely")
   }
-
 }
 

@@ -2,6 +2,7 @@
 
 import RxSwift
 import RxSwiftPlaygrounds
+import PlaygroundSupport
 
 
 example("⭕️ Single Serve Cold Observable") { print in
@@ -58,5 +59,6 @@ example("⭕️ Interval Cold Observable") { print in
 }
 
 
-done👑(continueExecution: true)
+PlaygroundPage.current.needsIndefiniteExecution = true
+done👑()
 
