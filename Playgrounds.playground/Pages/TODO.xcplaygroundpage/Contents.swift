@@ -11,7 +11,7 @@ import RxSwift
 PlaygroundPage.current.needsIndefiniteExecution = true
 
 
-example("publish, map, and grab the last") {
+example("publish, map, and grab the last") { print in
 //  let disposeBag = DisposeBag()
   let source = PublishSubject<String>()
   let map = source.map {
@@ -56,7 +56,7 @@ example("publish, map, and grab the last") {
 }
 
 
-example("scans and multiple suscriptions") {
+example("scans and multiple suscriptions") { print in
   let source = PublishSubject<String>()
   let scan = source.scan("initial") {
     (current, new) -> String in
@@ -80,7 +80,7 @@ example("scans and multiple suscriptions") {
 }
 
 
-example("replay forever whileConnected") {
+example("replay forever whileConnected") { print in
 
   func replayer(scope: SubjectLifetimeScope?) {
     let source = PublishSubject<String>()
@@ -130,7 +130,7 @@ example("replay forever whileConnected") {
 }
 
 
-example("concat") {
+example("concat") { print in
   let disposeBag = DisposeBag()
   let head = PublishSubject<String>()
   let tail = PublishSubject<String>()
@@ -148,3 +148,18 @@ example("concat") {
   tail.onCompleted()
 }
 
+
+example("⭕️ onComplete for complete and error") { print in
+  let completes = Observable.just("Complete!")
+    .do(onCompleted: {
+      print("completes completed!")
+    })
+  completes.subscribe()
+
+  let errors = Observable<String>.error(RxError.unknown)
+    .do(
+      onError: { _ in print("errors errored!") },
+      onCompleted: { print("errors completed!") })
+  errors.subscribe()
+
+}
