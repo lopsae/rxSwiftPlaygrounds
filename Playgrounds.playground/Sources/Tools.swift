@@ -1,6 +1,7 @@
 
 
 import PlaygroundSupport
+import Foundation
 
 
 public typealias PrintClosure = (String) -> Void
@@ -17,11 +18,20 @@ public func indent(prefix:String = "  ", closure: ((@escaping PrintClosure) -> V
 }
 
 
-// Prints the given `title` and creates a closure with a `print` function
-// using the default indentation.
+/// Prints the given `title` and creates a closure with a `print` function
+/// using the default indentation.
 public func example(_ title: String, closure: ((@escaping PrintClosure) -> Void)) {
   print("\n\(title)")
   indent(closure: closure)
+}
+
+
+/// Prints the given `title` and creates a closure with a `print` function
+/// using the default indentation.
+public func asyncExample(_ title: String, closure: @escaping ((@escaping PrintClosure) -> Void)) {
+  DispatchQueue.main.asyncAfter(deadline: .now()) {
+    example(title, closure: closure)
+  }
 }
 
 

@@ -28,8 +28,7 @@ example("⭕️ Single Serve Cold Observable") { print in
 }
 
 
-// TODO: make delayed example
-example("⭕️ Interval Cold Observable") { print in
+asyncExample("⭕️ Interval Cold Observable") { print in
   let interval: TimeInterval = 2
 
   // The observable created with `interval` is also a cold observable. Elements
@@ -40,7 +39,7 @@ example("⭕️ Interval Cold Observable") { print in
       print("❄️ ColdBeat: ⚡️ connected")
     })
     .do(onDispose: {
-      print("❄️ ColdBeat: 🚮 disposed")
+      print("❄️ ColdBeat: 🗑 disposed")
     })
 
 
