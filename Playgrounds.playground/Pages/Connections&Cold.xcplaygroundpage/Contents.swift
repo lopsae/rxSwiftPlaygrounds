@@ -6,22 +6,23 @@ import PlaygroundSupport
 
 
 example("⭕️ Single Serve Cold Observable") { print in
-  // This cold observable is a pasive factory that will create a "🍦" only until
-  // connected.
+  print("// This cold observable works like a pasive factory, it will emit '🍦' only when connected")
+
+  print("🍦 Creating ColdServe observable")
   let coldServe = Observable<String>.create {
     observer in
-    print("🍦 ColdServe ⚡️ Connected, serving!")
+    print("🍦 ColdServe ⚡️ connected, serving!")
     observer.onNext("🍦")
     observer.onCompleted()
     return Disposables.create()
   }
 
-  // This will create one serving
+  print("// This subscription will create one serving")
   coldServe.subscribe(onNext: {
     print("❇️ First: \($0)")
   })
 
-  // This will create another serving
+  print("// This subscription will create another serving")
   coldServe.subscribe(onNext: {
     print("✴️ Second: \($0)")
   })
@@ -31,9 +32,10 @@ example("⭕️ Single Serve Cold Observable") { print in
 asyncExample("⭕️ Interval Cold Observable") { print in
   let interval: TimeInterval = 2
 
-  // The observable created with `interval` is also a cold observable. Elements
-  // are emitted and time counted only until there is a connection, and for
-  // every individual connection.
+  print("// An observable created with `interval` is also a cold observable")
+  print("// Elements are emitted and time counted independently for each connection")
+
+  print("❄️ Creating ColdBeat interval observable")
   let coldBeat = Observable<Int>.interval(interval, scheduler: MainScheduler.instance)
     .do(onSubscribed: {
       print("❄️ ColdBeat: ⚡️ connected")
@@ -44,14 +46,14 @@ asyncExample("⭕️ Interval Cold Observable") { print in
 
 
   DispatchQueue.main.asyncAfter(deadline: .now()) {
-    // This connection will produce some elements
+    print("// This connection will produce some elements")
     coldBeat.take(3).subscribe(onNext: {
       print("❇️ First: \($0)")
     })
   }
 
   DispatchQueue.main.asyncAfter(deadline: .now() + interval * 1.5) {
-    // This connection will produce new elements in its own independent timeline
+    print("// This connection will produce new elements in its own independent timeline")
     coldBeat.take(3).subscribe(onNext: {
       print("✴️ Delayed: \($0)")
     })
