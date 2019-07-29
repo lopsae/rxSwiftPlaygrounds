@@ -9,8 +9,3 @@ public func check<T: Equatable>(actual: T, expected: T) -> String {
   return "🛑"
 }
 
-
-struct Play {
-
-}
-
