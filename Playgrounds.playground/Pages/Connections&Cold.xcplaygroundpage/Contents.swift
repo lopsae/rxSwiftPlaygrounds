@@ -6,14 +6,15 @@ import PlaygroundSupport
 
 
 Playarea.example("⭕️ Single Serve Cold Observable") { p in
-  p.comment("// This cold observable works like a pasive factory, it will emit '🍦' only when connected")
+  p.comment("// This cold observable works like a pasive factory, it will emit '🍦' only when subscribed")
 
   p.print("🍦 Creating ColdServe observable")
   let coldServe = Observable<String>.create {
     observer in
-    p.print("🍦 ColdServe ⚡️ connected, serving!")
+    p.print("🍦 ColdServe ⚡️ subscribed, serving!")
     observer.onNext("🍦")
     observer.onCompleted()
+    // TODO: add print on dispose
     return Disposables.create()
   }
 
@@ -38,10 +39,10 @@ Playarea.asyncExample("⭕️ Interval Cold Observable") { p in
   p.print("❄️ Creating ColdBeat interval observable")
   let coldBeat = Observable<Int>.interval(interval, scheduler: MainScheduler.instance)
     .do(onSubscribed: {
-      p.print("❄️ ColdBeat: ⚡️ connected")
+      p.print("❄️ ColdBeat ⚡️ connected")
     })
     .do(onDispose: {
-      p.print("❄️ ColdBeat: 🗑 disposed")
+      p.print("❄️ ColdBeat 🗑 disposed")
     })
 
 
