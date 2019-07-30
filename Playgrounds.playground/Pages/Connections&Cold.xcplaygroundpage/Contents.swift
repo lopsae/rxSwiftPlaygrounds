@@ -14,7 +14,6 @@ Playarea.example("⭕️ Single Serve Cold Observable") { p in
     p.print("🍦 ColdServe ⚡️ subscribed, serving!")
     observer.onNext("🍦")
     observer.onCompleted()
-    // TODO: add print on dispose
     return Disposables.create {
       p.print("🍦 ColdServe 🗑 disposed")
     }
@@ -38,7 +37,7 @@ Playarea.asyncExample("⭕️ Interval Cold Observable") { p in
   p.comment("// An observable created with `interval` is also a cold observable")
   p.comment("// Elements are emitted and time tracked independently for each subscription")
 
-  p.print("⚙ Creating ❄️ ColdBeat interval observable")
+  p.print("⚙️ Creating ❄️ ColdBeat interval observable")
   let coldBeat = Observable<Int>.interval(interval, scheduler: MainScheduler.instance)
     .do(onSubscribed: {
       p.print("❄️ ColdBeat ⚡️ subscribed")
@@ -65,7 +64,5 @@ Playarea.asyncExample("⭕️ Interval Cold Observable") { p in
 
 
 PlaygroundPage.current.needsIndefiniteExecution = true
-
-// TODO: move done to playarea!
-done👑()
+Playarea.done👑()
 

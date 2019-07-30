@@ -34,11 +34,3 @@ public func asyncExample(_ title: String, closure: @escaping ((@escaping PrintCl
   }
 }
 
-
-public func done👑() {
-  print("\n⚠️ Done executing playground code ~finis coronat opus 👑")
-  if PlaygroundPage.current.needsIndefiniteExecution {
-    print ("🔄 Playground thread running indefinitely")
-  }
-}
-

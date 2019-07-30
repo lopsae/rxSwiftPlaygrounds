@@ -100,5 +100,5 @@ example("⭕️ Two subscriptions without sharing") { print in
   })
 }
 
-done👑()
+Playarea.done👑()
 
