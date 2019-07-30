@@ -5,14 +5,12 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
-// TODO: add script to display TODO's as warnings
-// TODO: add static functions for print and comment
-Playarea.rootPrinter.comment("// The 👩🏽‍🍳 Chef observable will emit upon subscription four random dishes")
-Playarea.rootPrinter.comment("// Elements are emmited immediately and syncronously")
+Playarea.comment("// The 👩🏽‍🍳 Chef observable will emit upon subscription four random dishes")
+Playarea.comment("// Elements are emmited immediately and syncronously")
 let dishes = ["🍕", "🥗", "🍣", "🌮"]
-Playarea.rootPrinter.comment("// Dishes: \(dishes)")
+Playarea.comment("// Dishes: \(dishes)")
 
-Playarea.rootPrinter.print("⚙️ Creating 👩🏽‍🍳 Chef observable")
+Playarea.print("⚙️ Creating 👩🏽‍🍳 Chef observable")
 var chef: Observable<String>!
 Playarea.indent { p in
   chef = Observable<String>.create {
@@ -31,7 +29,7 @@ Playarea.indent { p in
 
 
 Playarea.example("⭕️ Default Sharing") { p in
-  p.comment("// Share by default has zero replays and a `.whileConnected` lifetime")
+  p.comment("// Share with defaults has zero replays and a `.whileConnected` lifetime")
   let sharedChef = chef.share()
 
   p.comment("// First subscription will receive all elements")
@@ -40,7 +38,7 @@ Playarea.example("⭕️ Default Sharing") { p in
   })
 
   p.comment("// The first subscription completes immediately because `chef` is synchronous")
-  p.comment("// The share resets after the subscription completes since `.whileConnected` is used")
+  p.comment("// The share resets after the completed subscription since `.whileConnected` is used")
 
   p.comment("// Second subscription will receive all new elements")
   sharedChef.subscribe(onNext: {

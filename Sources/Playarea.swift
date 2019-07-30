@@ -8,6 +8,19 @@ public class Playarea {
 
   public static var rootPrinter = Printer(prefix: "")
 
+
+  /// Prints a message using the `rootPrinter`.
+  public static func print(_ message: String) {
+    rootPrinter.print(message)
+  }
+
+
+  /// Prints a comment using the `rootPrinter`.
+  public static func comment(_ message: String) {
+    rootPrinter.comment(message)
+  }
+
+
   public static func indent(prefix:String = Printer.defaultPrefix, closure: (Printer) -> Void) {
     let printer = Printer(prefix: prefix)
     closure(printer)
