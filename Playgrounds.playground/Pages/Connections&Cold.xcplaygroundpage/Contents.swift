@@ -6,16 +6,18 @@ import PlaygroundSupport
 
 
 Playarea.example("⭕️ Single Serve Cold Observable") { p in
-  p.comment("// This cold observable works like a pasive factory, it will emit '🍦' only when subscribed")
+  p.comment("// This cold observable works like a pasive factory, it will emit `🍦` only when connected")
 
-  p.print("🍦 Creating ColdServe observable")
+  p.print("⚙️ Creating 🍦 ColdServe observable")
   let coldServe = Observable<String>.create {
     observer in
     p.print("🍦 ColdServe ⚡️ subscribed, serving!")
     observer.onNext("🍦")
     observer.onCompleted()
     // TODO: add print on dispose
-    return Disposables.create()
+    return Disposables.create {
+      p.print("🍦 ColdServe 🗑 disposed")
+    }
   }
 
   p.comment("// This subscription will create one serving")
@@ -34,12 +36,12 @@ Playarea.asyncExample("⭕️ Interval Cold Observable") { p in
   let interval: TimeInterval = 2
 
   p.comment("// An observable created with `interval` is also a cold observable")
-  p.comment("// Elements are emitted and time counted independently for each connection")
+  p.comment("// Elements are emitted and time tracked independently for each subscription")
 
-  p.print("❄️ Creating ColdBeat interval observable")
+  p.print("⚙ Creating ❄️ ColdBeat interval observable")
   let coldBeat = Observable<Int>.interval(interval, scheduler: MainScheduler.instance)
     .do(onSubscribed: {
-      p.print("❄️ ColdBeat ⚡️ connected")
+      p.print("❄️ ColdBeat ⚡️ subscribed")
     })
     .do(onDispose: {
       p.print("❄️ ColdBeat 🗑 disposed")
@@ -47,14 +49,14 @@ Playarea.asyncExample("⭕️ Interval Cold Observable") { p in
 
 
   DispatchQueue.main.asyncAfter(deadline: .now()) {
-    p.comment("// This connection will produce some elements")
+    p.comment("// This subscription will produce some elements")
     coldBeat.take(3).subscribe(onNext: {
       p.print("❇️ First: \($0)")
     })
   }
 
   DispatchQueue.main.asyncAfter(deadline: .now() + interval * 1.5) {
-    p.comment("// This connection will produce new elements in its own independent timeline")
+    p.comment("// This subscription will produce new elements in its own independent timeline")
     coldBeat.take(3).subscribe(onNext: {
       p.print("✴️ Delayed: \($0)")
     })
@@ -63,5 +65,7 @@ Playarea.asyncExample("⭕️ Interval Cold Observable") { p in
 
 
 PlaygroundPage.current.needsIndefiniteExecution = true
+
+// TODO: move done to playarea!
 done👑()
 

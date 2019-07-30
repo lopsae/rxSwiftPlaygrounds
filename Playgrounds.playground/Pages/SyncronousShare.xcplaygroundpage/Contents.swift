@@ -11,6 +11,8 @@ Playarea.rootPrinter.comment("// The 👩🏽‍🍳 Chef observable will emit u
 Playarea.rootPrinter.comment("// Elements are emmited immediately and syncronously")
 let dishes = ["🍕", "🥗", "🍣", "🌮"]
 Playarea.rootPrinter.comment("// Dishes: \(dishes)")
+
+Playarea.rootPrinter.print("⚙️ Creating 👩🏽‍🍳 Chef observable")
 var chef: Observable<String>!
 Playarea.indent { p in
   chef = Observable<String>.create {
@@ -37,8 +39,8 @@ Playarea.example("⭕️ Default Sharing") { p in
     p.print("❇️ First: \($0)")
   })
 
-  p.comment("// Chef is sycronous so the first subscription completes immediately")
-  p.comment("// Because of `.whileConnected` the share resets after this completion")
+  p.comment("// The first subscription completes immediately because `chef` is synchronous")
+  p.comment("// The share resets after the subscription completes since `.whileConnected` is used")
 
   p.comment("// Second subscription will receive all new elements")
   sharedChef.subscribe(onNext: {
@@ -73,7 +75,7 @@ example("⭕️ Forever & Replay Sharing") { print in
 }
 
 
-example("⭕️ While connected & Replay Sharing") { print in
+example("⭕️ While-connected & Replay Sharing") { print in
   let sharedChef = chef.share(replay: 1, scope: .whileConnected)
 
   sharedChef.subscribe(onNext: {
@@ -86,7 +88,7 @@ example("⭕️ While connected & Replay Sharing") { print in
 }
 
 
-example("⭕️ Two connections without sharing") { print in
+example("⭕️ Two subscriptions without sharing") { print in
   // different behaviours with foerever or whileConnected
   let sharedChef = chef.share(scope: .forever)
 
