@@ -36,6 +36,7 @@
 		E56752002060752D007232CE /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		E56752022060752D007232CE /* TestsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TestsInfo.plist; sourceTree = "<group>"; };
 		E567520A206082F9007232CE /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		E5CA0B8922F0D1A900ED8735 /* FlagSourceTags.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = FlagSourceTags.sh; sourceTree = "<group>"; };
 		F0048BCD1E53C46632EE9028 /* Pods-RxSwiftPlaygrounds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPlaygrounds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPlaygrounds/Pods-RxSwiftPlaygrounds.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +85,7 @@
 				E56751F120605BC7007232CE /* Sources */,
 				E5675208206077CB007232CE /* Support */,
 				E56751FF2060752D007232CE /* Tests */,
+				E5CA0B8822F0D17100ED8735 /* BuildSystem */,
 				E56751F020605BC7007232CE /* Products */,
 				B90008B48D4FC38E817FECD7 /* Pods */,
 				5B49327EA0BDBEEC7FB08164 /* Frameworks */,
@@ -125,6 +127,14 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		E5CA0B8822F0D17100ED8735 /* BuildSystem */ = {
+			isa = PBXGroup;
+			children = (
+				E5CA0B8922F0D1A900ED8735 /* FlagSourceTags.sh */,
+			);
+			path = BuildSystem;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -143,6 +153,7 @@
 			buildConfigurationList = E56751F720605BC7007232CE /* Build configuration list for PBXNativeTarget "RxSwiftPlaygrounds" */;
 			buildPhases = (
 				0DC0DC55C1E5DD711D6E5C05 /* [CP] Check Pods Manifest.lock */,
+				E5CA0B8A22F0D52E00ED8735 /* Flag warning and error tags in source files */,
 				E56751EA20605BC7007232CE /* Sources */,
 				E56751EB20605BC7007232CE /* Frameworks */,
 				E56751EC20605BC7007232CE /* Headers */,
@@ -287,6 +298,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E5CA0B8A22F0D52E00ED8735 /* Flag warning and error tags in source files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Flag warning and error tags in source files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./${PROJECTDIR}/BuildSystem/FlagSourceTags.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
