@@ -8,6 +8,13 @@ public class Playarea {
 
   public static var rootPrinter = Printer(prefix: "")
   public static var defaultPrefix = "  "
+  public static var printsComments = true {
+    didSet {
+      if !printsComments {
+        rootPrinter.print("⚠️ global comment printing disabled")
+      }
+    }
+  }
 
 
   /// Prints a message using the `rootPrinter`.
@@ -47,9 +54,6 @@ extension Playarea {
 
   // TODO: add documentation
   public class Printer {
-    private typealias `Self` = Printer
-
-    public static var globalPrintsComments = true
 
     private let parent: Printer?
     public let prefix: String
@@ -72,7 +76,7 @@ extension Playarea {
 
 
     public func comment(_ message: String) {
-      guard printsComments ?? Self.globalPrintsComments else {
+      guard printsComments ?? Playarea.printsComments else {
         return
       }
 
