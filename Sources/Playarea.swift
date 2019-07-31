@@ -57,6 +57,7 @@ extension Playarea {
 
     private let parent: Printer?
     public let prefix: String
+    public let commentPrefix: String = "// "
     public var printsComments: Bool? = nil
 
 
@@ -81,6 +82,14 @@ extension Playarea {
       }
 
       print(message)
+    }
+
+
+    public static func / (printer: Printer, message: String) {
+      let lines = message.split(separator: Character("\n"), omittingEmptySubsequences: false)
+      lines.forEach {
+        printer.comment(printer.commentPrefix + $0)
+      }
     }
 
   }

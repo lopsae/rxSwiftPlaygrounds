@@ -4,8 +4,10 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
-Playarea.comment("// This project uses `Playarea`, a helper class to indentate")
-Playarea.comment("// console output into visually distinct chunks")
+Playarea.rootPrinter / """
+  This project uses `Playarea`, a helper class to indentate
+  console output into visually distinct chunks
+  """
 
 
 Playarea.example("⭕️ Playarea example") { p in
@@ -38,6 +40,7 @@ Playarea.example("⭕️ Override `printsComments`") { p in
   p.printsComments = true
   p.comment("// Now comments are printed again, but only in this `example`")
 }
+
 
 Playarea.print("")
 Playarea.print("🖨 enabling comments")
