@@ -25,9 +25,10 @@ Playarea.example("⭕️ Another example") { p in
 
 Playarea.comment("")
 Playarea.comment("// To reduce verbosity comments can be disabled globally")
+Playarea.print("🖨 disabling comments, no lines with ☢️ should be visible in console")
 Playarea.printsComments = false
 Playarea.comment("// ☢️ `comment` will no longer print!")
-Playarea.print("🖨 `print` will always print regardless of `printsComments`")
+Playarea.print("🖨 `print` will always print regardless of comments configuration")
 
 
 Playarea.example("⭕️ Override `printsComments`") { p in
@@ -38,9 +39,11 @@ Playarea.example("⭕️ Override `printsComments`") { p in
   p.comment("// Now comments are printed again, but only in this `example`")
 }
 
-
-Playarea.comment("")
+Playarea.print("")
+Playarea.print("🖨 enabling comments")
+Playarea.printsComments = true
 Playarea.comment("// `done👑` is called at the end of the playground just to")
 Playarea.comment("// have a visual confirmation that the whole file executed")
+
 Playarea.done👑()
 
