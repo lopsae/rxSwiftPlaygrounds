@@ -5,10 +5,10 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
-Playarea.comment("// The 👩🏽‍🍳 Chef observable will emit upon subscription four random dishes")
-Playarea.comment("// Elements are emmited immediately and syncronously")
+Playarea.comment("The 👩🏽‍🍳 Chef observable will emit upon subscription four random dishes")
+Playarea.comment("Elements are emmited immediately and syncronously")
 let dishes = ["🍕", "🥗", "🍣", "🌮"]
-Playarea.comment("// Dishes: \(dishes)")
+Playarea.comment("Dishes: \(dishes)")
 
 Playarea.print("⚙️ Creating 👩🏽‍🍳 Chef observable")
 var chef: Observable<String>!
@@ -29,18 +29,18 @@ Playarea.indent { p in
 
 
 Playarea.example("⭕️ Default Sharing") { p in
-  p.comment("// Share with defaults has zero replays and a `.whileConnected` lifetime")
+  p.comment("Share with defaults has zero replays and a `.whileConnected` lifetime")
   let sharedChef = chef.share()
 
-  p.comment("// First subscription will receive all elements")
+  p.comment("First subscription will receive all elements")
   sharedChef.subscribe(onNext: {
     p.print("❇️ First: \($0)")
   })
 
-  p.comment("// The first subscription completes immediately because `chef` is synchronous")
-  p.comment("// The share resets after the completed subscription since `.whileConnected` is used")
+  p.comment("The first subscription completes immediately because `chef` is synchronous")
+  p.comment("The share resets after the completed subscription since `.whileConnected` is used")
 
-  p.comment("// Second subscription will receive all new elements")
+  p.comment("Second subscription will receive all new elements")
   sharedChef.subscribe(onNext: {
     p.print("✴️ Second: \($0)")
   })

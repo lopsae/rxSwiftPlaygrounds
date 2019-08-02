@@ -4,49 +4,69 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
-Playarea.rootPrinter / """
-  This project uses `Playarea`, a helper class to indentate
-  console output into visually distinct chunks
-  """
+Playarea.comment("This project uses `Playarea`, a helper class to indentate")
+Playarea.comment("console output into visually distinct chunks")
+Playarea.newLine()
 
 
 Playarea.example("⭕️ Playarea example") { p in
-  p.comment("// This playgrounds are structured with the `example` function")
-  p.comment("// Each `example` creates an internal `Printer` that prints")
-  p.comment("// comments and output with a given indentation")
+  p.comment("Playgrounds are structured through the `example` function")
+  p.comment("Each `example` closure receives an `Printer` that prints")
+  p.comment("comments and output with a given indentation")
 
-  p.print("🖨 Both `comment` and `print` will be indentated inside an `example`")
+  p.print("🖨 Output from both `comment` and `print` will be indented within an `example`")
 }
 
 
 Playarea.example("⭕️ Another example") { p in
-  p.comment("// Each `example` creates its own visual chunk.")
+  p.comment("Each `example` creates its own visual chunk.")
   p.print("🖨 With separated chunks it is easier to read through several `examples`")
 }
 
 
-Playarea.comment("")
-Playarea.comment("// To reduce verbosity comments can be disabled globally")
-Playarea.print("🖨 disabling comments, no lines with ☢️ should be visible in console")
-Playarea.printsComments = false
-Playarea.comment("// ☢️ `comment` will no longer print!")
-Playarea.print("🖨 `print` will always print regardless of comments configuration")
+
+Playarea.comment("""
+  For printing outside of `example` closures `Playarea` exposes the static
+  `print` and `comment` functions
+
+  These functions print using `Playarea.root` which by default has no
+  indentation
+  """)
+Playarea.newLine()
 
 
-Playarea.example("⭕️ Override `printsComments`") { p in
-  p.comment("// ☢️ The `printsComments` setting persists into `examples`")
-  p.comment("// ☢️ but can be overriden in any `Printer` instance")
-  p.print("🖨 Overriding `printsComments` inside an `example`")
-  p.printsComments = true
-  p.comment("// Now comments are printed again, but only in this `example`")
+Playarea.comment("""
+  Notice also how `comment` automatically prefixes `Playarea.defaultCommentPrefix`,
+  which by default is "// ", to every printed line.
+  """)
+Playarea.newLine()
+
+
+Playarea.example("⭕️ Printing shorthands `/` and `<`") { p in
+  p / "The `/` operator can be used as a shorthand for `comment`"
+  p < "The `<` operator can be used as a shorthand for `print`"
 }
 
 
-Playarea.print("")
-Playarea.print("🖨 enabling comments")
-Playarea.printsComments = true
-Playarea.comment("// `done👑` is called at the end of the playground just to")
-Playarea.comment("// have a visual confirmation that the whole file executed")
+Playarea.example("⭕️ Disable comments") { p in
+  p / "To reduce verbosity comments can be disabled globally with `Playarea.printsComments`"
+
+  p < "🖨 disabling comments, no lines with ☢️ should be visible in console"
+  Playarea.printsComments = false
+
+  p / "☢️ `comment` will no longer print!"
+  p < "🖨 `print` will always print regardless of `printsComments` configuration"
+
+  p < "🖨 re-enabling comments"
+  Playarea.printsComments = true
+  p / "Comments are printed again!"
+}
+
+
+Playarea.root / """
+  `done👑` is called at the end of the playground just to have a visual
+  confirmation that the whole file has executed
+  """
 
 Playarea.done👑()
 
