@@ -5,55 +5,75 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
-Playarea.comment("The 👩🏽‍🍳 Chef observable will emit upon subscription four random dishes")
-Playarea.comment("Elements are emmited immediately and syncronously")
 let dishes = ["🍕", "🥗", "🍣", "🌮"]
-Playarea.comment("Dishes: \(dishes)")
+Playarea.root / """
+  The 👩🏽‍🍳 Chef observable will emit upon subscription four random dishes
+  Elements are emmited immediately and syncronously
+  Possible dishes are: \(dishes)
+  """
+Playarea.newLine()
 
-Playarea.print("⚙️ Creating 👩🏽‍🍳 Chef observable")
+Playarea.root < "⚙️ Creating 👩🏽‍🍳 Chef observable"
 var chef: Observable<String>!
 Playarea.indent { p in
   chef = Observable<String>.create {
     observer in
-    p.print("👩🏽‍🍳 Chef ⚡️ subscribed, cooking!")
+    p < "👩🏽‍🍳 Chef ⚡️ subscribed, cooking!"
     for _ in 0...3 {
       let serving = dishes.randomElement()!
       observer.onNext(serving)
     }
     observer.onCompleted()
     return Disposables.create {
-      p.print("👩🏽‍🍳 Chef 🗑 disposed")
+      p < "👩🏽‍🍳 Chef 🗑 subscription disposed"
     }
   }
 }
+Playarea.newLine()
 
 
 Playarea.example("⭕️ Default Sharing") { p in
-  p.comment("Share with defaults has zero replays and a `.whileConnected` lifetime")
+  p / "Share with defaults has zero replays and a `.whileConnected` lifetime"
   let sharedChef = chef.share()
+    .do(onDispose: { p < "🗑 Share disposed" })
+  p.newLine()
 
-  p.comment("First subscription will receive all elements")
+  p / "First subscription will receive all elements"
   sharedChef.subscribe(onNext: {
-    p.print("❇️ First: \($0)")
+    p < "❇️ First: \($0)"
   })
 
-  p.comment("The first subscription completes immediately because `chef` is synchronous")
-  p.comment("The share resets after the completed subscription since `.whileConnected` is used")
+  p / """
+    The first subscription completes immediately because `chef` is synchronous
+    The share resets after the completed subscription since `.whileConnected` is used
+    """
+  p.newLine()
 
-  p.comment("Second subscription will receive all new elements")
+  p / "Second subscription will receive all new elements"
   sharedChef.subscribe(onNext: {
-    p.print("✴️ Second: \($0)")
+    p < "✴️ Second: \($0)"
   })
 }
 
 
-example("⭕️ Sharing Forever") { print in
+Playarea.example("⭕️ Sharing Forever") { p in
+  p / "Share with zero replays and a `.forever` lifetime"
   let sharedChef = chef.share(scope: .forever)
+    .do(onDispose: { p < "🗑 Share disposed" })
+  p.newLine()
 
+  p / "First subscription will receive all elements"
   sharedChef.subscribe(onNext: {
-    print("❇️ First: \($0)")
+    p < "❇️ First: \($0)"
   })
 
+  p / """
+    The share does not reset after the subscription completes since `.forever` is used
+    The share will neither connect again to 👩🏽‍🍳 Chef when reconnected.
+    """
+  p.newLine()
+
+  p < "Second subscription receives no elements since there is no replay"
   sharedChef.subscribe(onNext: {
     print("✴️ Second: \($0)")
   })

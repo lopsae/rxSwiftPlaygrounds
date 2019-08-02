@@ -15,7 +15,7 @@ Playarea.example("⭕️ Single Serve Cold Observable") { p in
     observer.onNext("🍦")
     observer.onCompleted()
     return Disposables.create {
-      p < "🍦 ColdServe 🗑 disposed"
+      p < "🍦 ColdServe 🗑 subscription disposed"
     }
   }
 
