@@ -5,7 +5,7 @@ import RxSwiftPlaygrounds
 import PlaygroundSupport
 
 
-Playarea.example("⭕️ Single Serve Cold Observable") { p in
+Playarea.example("⭕️🍦 Single Serve Cold Observable") { p in
   p / "This cold observable works like a pasive factory, it will emit `🍦` only when subscribed"
 
   p < "⚙️ Creating 🍦 ColdServe observable"
@@ -31,7 +31,7 @@ Playarea.example("⭕️ Single Serve Cold Observable") { p in
 }
 
 
-Playarea.asyncExample("⭕️ Interval Cold Observable") { p in
+Playarea.asyncExample("⭕️❄️ Interval Cold Observable") { p in
   let interval: TimeInterval = 2
 
   p / "An observable created with `interval` is also a cold observable"

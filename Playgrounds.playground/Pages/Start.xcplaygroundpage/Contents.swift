@@ -3,19 +3,26 @@
 import RxSwift
 import RxSwiftPlaygrounds
 
+
 // TODO: just trying a different name
 typealias Thicket = Playarea
 
-Thicket.comment("This project uses `Thicket`, a helper class to indentate")
-Thicket.comment("console output into visually distinct chunks")
-Thicket.newLine()
+
+Thicket.commentParagraph("""
+  This project uses `Thicket`, a helper class to indentate console output into
+  visually distinct chunks
+  """)
 
 
 Thicket.example("⭕️ Thicket example") { p in
-  p.comment("Playgrounds are structured through the `example` function")
-  p.comment("Each `example` closure receives an `Printer` that prints")
-  p.comment("comments and output with a given indentation")
+  p.commentParagraph("""
+    Playgrounds are structured through the `example` function
+    Each `example` closure receives an `Printer` that prints comments and
+    output with a given indentation
+    """)
 
+  p.comment("`comment` prints comment-formatted lines")
+  p.commentParagraph("`commentParagraph` prints the same plus a new line at the end")
   p.print("🖨 Output from both `comment` and `print` will be indented within an `example`")
 }
 
@@ -26,26 +33,25 @@ Thicket.example("⭕️ Another example") { p in
 }
 
 
-Thicket.comment("""
+Thicket.commentParagraph("""
   For printing outside of `example` closures `Thicket` exposes the static
-  `print` and `comment` functions
+  `print`, `comment`, and `commentParagraph` functions
 
   These functions print using `Thicket.root` which by default has no
   indentation
   """)
-Thicket.newLine()
 
 
-Thicket.comment("""
+Thicket.commentParagraph("""
   Notice also how `comment` automatically prefixes `Thicket.defaultCommentPrefix`,
   which by default is "// ", to every printed line.
   """)
-Thicket.newLine()
 
 
-Thicket.example("⭕️ Printing shorthands `/` and `<`") { p in
-  p / "The `/` operator can be used as a shorthand for `comment`"
-  p < "The `<` operator can be used as a shorthand for `print`"
+Thicket.example("⭕️ Printing shorthand operators") { p in
+  p / "The `/` operator is a shorthand for `comment`"
+  p % "The `%` operator is a shorthand for `comment`"
+  p < "The `<` operator is a shorthand for `print`"
 }
 
 
@@ -65,7 +71,7 @@ Thicket.example("⭕️ Disable comments") { p in
 }
 
 
-Thicket.root / """
+Thicket.root % """
   `done👑` is called at the end of the playground just to have a visual
   confirmation that the whole file has executed
   """

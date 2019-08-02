@@ -37,6 +37,12 @@ public class Playarea {
   }
 
 
+  /// Prints a comment paragraph using `rootPrinter`.
+  public static func commentParagraph(_ message: String) {
+    root.commentParagraph(message)
+  }
+
+
   /// Prints a newLine using `rootPrinter`
   public static func newLine() {
     root.newLine()
@@ -110,6 +116,16 @@ extension Playarea {
     }
 
 
+    /// Prints each line of `message` prefixed with `commentPrefix` and the
+    /// indentation of the instance plus `parent`, followed by a new line.
+    ///
+    /// If `printsComments` is `false` then no operation is performed.
+    public func commentParagraph(_ message: String) {
+      comment(message)
+      newLine()
+    }
+
+
     /// Prints a new line without any indentation or prefix.
     public func newLine() {
       Swift.print()
@@ -120,6 +136,13 @@ extension Playarea {
     /// `printer / "message"` is equivalent to `printer.comment("message")`.
     public static func / (printer: Printer, message: String) {
       printer.comment(message)
+    }
+
+
+    /// Convenience operator for `commentParagraph(_:)`.
+    /// `printer % "message"` is equivalent to `printer.commentParagraph("message")`.
+    public static func % (printer: Printer, message: String) {
+      printer.commentParagraph(message)
     }
 
 
