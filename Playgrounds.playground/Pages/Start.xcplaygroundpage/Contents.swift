@@ -55,6 +55,7 @@ Playarea.example("⭕️ Disable comments") { p in
   Playarea.printsComments = false
 
   p / "☢️ `comment` will no longer print!"
+  Playarea.comment("☢️ and neither `Playarea.comment`")
   p < "🖨 `print` will always print regardless of `printsComments` configuration"
 
   p < "🖨 re-enabling comments"
