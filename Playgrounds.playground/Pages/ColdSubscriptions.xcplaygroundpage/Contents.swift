@@ -7,7 +7,7 @@ import RxSwiftPlaygrounds
 
 
 Playarea.example("⭕️🍦 Single Serve Cold Observable") { p in
-  p / "This cold observable works like a pasive factory, it will emit `🍦` only when subscribed"
+  p % "This cold observable works like a pasive factory, it will emit `🍦` only when subscribed"
 
   p < "⚙️ Creating 🍦 ColdServe observable"
   let coldServe = Observable<String>.create {
@@ -35,11 +35,17 @@ Playarea.example("⭕️🍦 Single Serve Cold Observable") { p in
 Playarea.asyncExample("⭕️❄️ Interval Cold Observable") { p in
   let interval: TimeInterval = 2
 
-  p / "An observable created with `interval` is also a cold observable"
-  p / "Elements are emitted and time tracked independently for each subscription"
+  p % """
+    An observable created with `interval` is also a cold observable"
+    Elements are emitted and time is tracked independently for each subscription
+    """
 
   p < "⚙️ Creating ❄️ ColdBeat interval observable"
   let coldBeat = Observable<Int>.interval(interval, scheduler: MainScheduler.instance)
+    .take(3)
+    .map { count in
+      return Array(repeating: "❄️", count: count + 1).joined()
+    }
     .do(onSubscribed: {
       p < "❄️ ColdBeat ⚡️ subscribed"
     })
@@ -50,15 +56,15 @@ Playarea.asyncExample("⭕️❄️ Interval Cold Observable") { p in
 
   DispatchQueue.main.asyncAfter(deadline: .now()) {
     p / "This subscription will produce some elements"
-    coldBeat.take(3).subscribe(onNext: {
-      p < "❇️ First: \($0)"
+    coldBeat.subscribe(onNext: {
+      p < "❇️ \($0) First"
     })
   }
 
   DispatchQueue.main.asyncAfter(deadline: .now() + interval * 1.5) {
     p / "This subscription will produce new elements in its own independent timeline"
-    coldBeat.take(3).subscribe(onNext: {
-      p < "✴️ Delayed: \($0)"
+    coldBeat.subscribe(onNext: {
+      p < "✴️ \($0) Delayed"
     })
   }
 }
