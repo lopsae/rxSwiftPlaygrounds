@@ -1,9 +1,9 @@
 
 
 import PlaygroundSupport
+import RxSwift
 import RxSwiftPlaygrounds
 
-import RxSwift
 
 // Other experiments and pending TODO's.
 // Code in this file may be incomplete or in-progress.
@@ -163,3 +163,44 @@ example("⭕️ onComplete for complete and error") { print in
   errors.subscribe()
 
 }
+
+
+
+
+
+example("⭕️ Two subscriptions without sharing") { print in
+
+  let dishes = ["🍕", "🥗", "🍣", "🌮", "🌯", "🍜"]
+  var chef: Observable<String>!
+  Playarea.indent { p in
+    chef = Observable<String>.create {
+      observer in
+      p < "👩🏽‍🍳 Chef ⚡️ subscribed, cooking!"
+      for _ in 0...2 {
+        let serving = dishes.randomElement()!
+        observer.onNext(serving)
+      }
+      observer.onCompleted()
+      return Disposables.create {
+        p < "👩🏽‍🍳 Chef 🗑 subscription disposed"
+      }
+    }
+  }
+
+  // different behaviours with foerever or whileConnected
+  let sharedChef = chef.share(scope: .forever)
+
+  let delayed = Observable.just("⏱").delay(0.5, scheduler: MainScheduler.instance)
+  let untilDishes = delayed.takeUntil(sharedChef)
+  // different behaviours with different order
+  let merged = Observable.merge(untilDishes, sharedChef)
+
+  merged.subscribe(onNext: {
+    print("🔽 Merge: \($0)")
+  })
+}
+
+
+
+Playarea.done👑()
+

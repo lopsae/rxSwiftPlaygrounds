@@ -1,8 +1,9 @@
 
 
+import PlaygroundSupport
 import RxSwift
 import RxSwiftPlaygrounds
-import PlaygroundSupport
+
 
 
 Playarea.example("⭕️🍦 Single Serve Cold Observable") { p in
