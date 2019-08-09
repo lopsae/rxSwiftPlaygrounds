@@ -5,9 +5,14 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
+// TODO: just trying a different name
+typealias Binder = Playarea
+
+
+
+
+
+
 PlaygroundPage.current.needsIndefiniteExecution = true
-
-
-
-print("👑 finis coronat opus~ (but still running)")
+Binder.done👑()
 
