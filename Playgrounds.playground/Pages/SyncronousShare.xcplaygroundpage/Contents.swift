@@ -6,19 +6,19 @@ import RxSwiftPlaygrounds
 
 
 // TODO: just trying a different name
-typealias Thicket = Playarea
+typealias Binder = Playarea
 
 
 let dishes = ["🍕", "🥗", "🍣", "🌮", "🌯", "🍜"]
-Thicket.root % """
+Binder.root % """
   The 👩🏽‍🍳 Chef observable will emit upon subscription three random dishes
   Elements are emmited immediately and syncronously
   Possible dishes are: \(dishes)
   """
 
-Thicket.root < "⚙️ Creating 👩🏽‍🍳 Chef observable"
+Binder.root < "⚙️ Creating 👩🏽‍🍳 Chef observable"
 var chef: Observable<String>!
-Thicket.indent { p in
+Binder.indent { p in
   chef = Observable<String>.create {
     observer in
     p < "👩🏽‍🍳 Chef ⚡️ subscribed, cooking!"
@@ -32,10 +32,10 @@ Thicket.indent { p in
     }
   }
 }
-Thicket.newLine()
+Binder.newLine()
 
 
-Thicket.example("⭕️*️⃣ Default Sharing") { p in
+Binder.example("⭕️*️⃣ Default Sharing") { p in
   p % "Share with defaults has zero replays and a `.whileConnected` lifetime"
   let sharedChef = chef.share()
     .do(onDispose: { p < "🗑 Share disposed" })
@@ -57,7 +57,7 @@ Thicket.example("⭕️*️⃣ Default Sharing") { p in
 }
 
 
-Thicket.example("⭕️⏺ Sharing Forever") { p in
+Binder.example("⭕️⏺ Sharing Forever") { p in
   p % "Share with zero replays and a `.forever` lifetime"
   let sharedChef = chef.share(scope: .forever)
     .do(onDispose: { p < "🗑 Share disposed" })
@@ -79,7 +79,7 @@ Thicket.example("⭕️⏺ Sharing Forever") { p in
 }
 
 
-Thicket.example("⭕️🎦 Forever & Replay Sharing") { p in
+Binder.example("⭕️🎦 Forever & Replay Sharing") { p in
   p % "Share with two replays and a `.forever` lifetime"
   let sharedChef = chef.share(replay: 2, scope: .forever)
     .do(onDispose: { p < "🗑 Share disposed" })
@@ -128,5 +128,5 @@ example("⭕️ Two subscriptions without sharing") { print in
   })
 }
 
-Thicket.done👑()
+Binder.done👑()
 
