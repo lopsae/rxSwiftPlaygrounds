@@ -58,6 +58,18 @@ public class Playarea {
   }
 
 
+  public static func indent<Return>(
+    prefix:String = defaultPrefix,
+    closure: (Printer) -> Return)
+  -> Return {
+    let printer = Printer(
+      prefix: prefix,
+      commentPrefix: defaultCommentPrefix,
+      parent: root)
+    return closure(printer)
+  }
+
+
   public static func example(_ title: String, closure: (Printer) -> Void) {
     root.print(title)
     indent(closure: closure)

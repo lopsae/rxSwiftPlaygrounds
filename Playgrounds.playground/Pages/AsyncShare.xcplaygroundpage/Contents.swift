@@ -37,8 +37,7 @@ Binder.asyncExample("⭕️⏰ Async Snooze Sharing") { p in
     Different settings will change the elements delivered to each subscription
     Try different values to see how share behaves and where connections and diposals occurr
     The ⏰ Snooze observable is shared with
-    replay: \(snoozeReplay)
-    scope:  \(snoozeScope)
+    replay: \(snoozeReplay), scope:  \(snoozeScope)
     """
   let sharedSnooze = snooze.share(replay: snoozeReplay, scope: snoozeScope)
 
