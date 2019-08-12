@@ -6,6 +6,8 @@
         <page name='SyncronousShare'/>
         <page name='AsyncShare'/>
         <page name='HotSubject'/>
+        <page name='Disposables'/>
+        <page name='UnknownIssues'/>
         <page name='TODO'/>
         <page name='Chains'/>
     </pages>
