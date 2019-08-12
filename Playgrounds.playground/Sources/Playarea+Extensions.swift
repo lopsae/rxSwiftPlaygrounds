@@ -22,8 +22,5 @@ extension Playarea {
     root.newLine()
   }
 
-
-
-
 }
 

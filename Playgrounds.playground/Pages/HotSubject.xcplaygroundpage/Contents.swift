@@ -9,13 +9,14 @@ import RxSwiftPlaygrounds
 typealias Binder = Playarea
 
 
+
 let subject = PublishSubject<String>()
 let broadcast = Binder.indent { p in
-  return subject
-    .do(onSubscribed: { p < "📺 Broadcast ⚡️ subscribed" } )
-    .do(onNext:       { p < "📺 Broadcast 📦 emiting: \($0)" } )
-    .do(onCompleted:  { p < "📺 Broadcast ❌ completed" } )
-    .do(onDispose:    { p < "📺 Broadcast 🗑 disposed" } )
+  return subject.do(
+    onNext:       { p < "📺 Broadcast 📦 emiting: \($0)" },
+    onCompleted:  { p < "📺 Broadcast ❌ completed" },
+    onSubscribed: { p < "📺 Broadcast ⚡️ subscribed" },
+    onDispose:    { p < "📺 Broadcast 🗑 disposed" })
 }
 
 
