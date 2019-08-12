@@ -76,6 +76,5 @@ Playarea.asyncExample("⭕️❄️ Interval Cold Observable") { p in
 }
 
 
-PlaygroundPage.current.needsIndefiniteExecution = true
-Playarea.done👑()
+Playarea.done👑(needsIndefiniteExecution: true)
 

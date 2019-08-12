@@ -22,12 +22,13 @@ let broadcast = Binder.indent { p in
 Binder.example("⭕️ example") { p in
   // sports: 🏃🏾‍♀️🏂🤸🏻‍♂️⛹🏿‍♀️🧘🏽‍♂️🏊🏼‍♀️🚴🏽‍♀️
   subject.onNext("🏃🏾‍♀️")
-  subject.onNext("🏂")
 
   broadcast.subscribe(
     onNext:      { p < "❇️ First: \($0)"},
     onCompleted: { p < "❇️ First ❌ completed"},
     onDisposed:  { p < "❇️ First 🗑 disposed"})
+
+  subject.onNext("🏂")
 
   var disposeBag = DisposeBag()
   broadcast.subscribe(
@@ -49,25 +50,26 @@ Binder.example("⭕️ example") { p in
   p < "is disposed: \(subject.isDisposed)"
 
   broadcast.subscribe(
-    onNext:      { p < "⚛️ Last: \($0)"},
-    onCompleted: { p < "⚛️ Last ❌ completed"},
-    onDisposed:  { p < "⚛️ Last 🗑 disposed"})
+    onNext:      { p < "⚛️ Third: \($0)"},
+    onCompleted: { p < "⚛️ Third ❌ completed"},
+    onDisposed:  { p < "⚛️ Third 🗑 disposed"})
 
-  // Ignored
+  // Ignored?
   subject.onNext("🚫")
+  subject.onCompleted()
+  subject.onError(RxError.unknown)
 
   subject.dispose()
 
   p < "is disposed: \(subject.isDisposed)"
 
   broadcast.subscribe(
-    onNext:      { p < "⚛️ Last: \($0)"},
-    onCompleted: { p < "⚛️ Last ❌ completed"},
-    onDisposed:  { p < "⚛️ Last 🗑 disposed"})
+    onNext:      { p < "*️⃣ Last: \($0)"},
+    onCompleted: { p < "*️⃣ Last ❌ completed"},
+    onDisposed:  { p < "*️⃣ Last 🗑 disposed"})
 
 }
 
 
-PlaygroundPage.current.needsIndefiniteExecution = true
-Binder.done👑()
+Binder.done👑(needsIndefiniteExecution: true)
 

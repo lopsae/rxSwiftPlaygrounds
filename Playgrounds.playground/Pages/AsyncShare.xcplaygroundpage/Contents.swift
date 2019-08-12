@@ -64,6 +64,5 @@ Binder.asyncExample("⭕️⏰ Async Snooze Sharing") { p in
 }
 
 
-PlaygroundPage.current.needsIndefiniteExecution = true
-Binder.done👑()
+Binder.done👑(needsIndefiniteExecution: true)
 
