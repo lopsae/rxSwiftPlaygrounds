@@ -6,7 +6,7 @@ import RxSwiftPlaygrounds
 
 
 
-Playarea.example("⭕️🍦 Single Serve Cold Observable") { p in
+Binder.example("⭕️🍦 Single Serve Cold Observable") { p in
   p % """
     The 🍦 ColdServe observable is a cold observable
     It works like a pasive factory: it will emit a sigle `🍦` only when subscribed
@@ -35,7 +35,7 @@ Playarea.example("⭕️🍦 Single Serve Cold Observable") { p in
 }
 
 
-Playarea.asyncExample("⭕️❄️ Interval Cold Observable") { p in
+Binder.asyncExample("⭕️❄️ Interval Cold Observable") { p in
   let coldInterval: TimeInterval = 2
   let coldElements = 3
 
@@ -76,5 +76,5 @@ Playarea.asyncExample("⭕️❄️ Interval Cold Observable") { p in
 }
 
 
-Playarea.done👑(needsIndefiniteExecution: true)
+Binder.done👑(needsIndefiniteExecution: true)
 

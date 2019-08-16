@@ -5,11 +5,6 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
-// TODO: just trying a different name
-typealias Binder = Playarea
-
-
-
 let subject = PublishSubject<String>()
 let broadcast = Binder.indent { p in
   return subject.do(
@@ -72,5 +67,5 @@ Binder.example("⭕️ example") { p in
 }
 
 
-Binder.done👑(needsIndefiniteExecution: true)
+Binder.done👑()
 

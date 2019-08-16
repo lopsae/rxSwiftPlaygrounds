@@ -5,10 +5,6 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
-// TODO: just trying a different name
-typealias Binder = Playarea
-
-
 Binder.asyncExample("⭕️⏰ Async Snooze Sharing") { p in
   let snoozeInterval: TimeInterval = 2
   let snoozeElements = 3

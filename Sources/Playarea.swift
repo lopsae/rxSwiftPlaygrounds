@@ -4,7 +4,7 @@ import Foundation
 
 
 // TODO: add documentation
-public class Playarea {
+public class Binder {
 
   public static var root = Printer(prefix: "", commentPrefix: defaultCommentPrefix)
 
@@ -86,7 +86,7 @@ public class Playarea {
 }
 
 
-extension Playarea {
+extension Binder {
 
   // TODO: add documentation
   public class Printer {
@@ -119,7 +119,7 @@ extension Playarea {
     ///
     /// If `printsComments` is `false` then no operation is performed.
     public func comment(_ message: String) {
-      guard printsComments ?? Playarea.printsComments else { return }
+      guard printsComments ?? Binder.printsComments else { return }
 
       let lines = message.split(separator: Character("\n"), omittingEmptySubsequences: false)
       lines.forEach {

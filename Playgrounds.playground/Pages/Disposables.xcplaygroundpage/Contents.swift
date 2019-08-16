@@ -5,10 +5,8 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
-// TODO: just trying a different name
-typealias Binder = Playarea
+// TODO: Disposables playground
 
 
-
-Binder.done👑(needsIndefiniteExecution: true)
+Binder.done👑()
 

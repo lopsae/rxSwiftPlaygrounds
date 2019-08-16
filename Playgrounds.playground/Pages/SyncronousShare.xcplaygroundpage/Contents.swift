@@ -5,10 +5,6 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
-// TODO: just trying a different name
-typealias Binder = Playarea
-
-
 let dishes = ["🍕", "🥗", "🍣", "🌮", "🌯", "🍜"]
 Binder.root % """
   The 👩🏽‍🍳 Chef observable will emit upon subscription three random dishes

@@ -4,7 +4,7 @@ import PlaygroundSupport
 import RxSwiftPlaygrounds
 
 
-extension Playarea {
+extension Binder {
 
   /// Prints a friendly done-executing-code message along some additional
   /// playground configurations.

@@ -8,7 +8,13 @@ import RxSwiftPlaygrounds
 // Other experiments and pending TODO's.
 // Code in this file may be incomplete or in-progress.
 
-PlaygroundPage.current.needsIndefiniteExecution = true
+
+Binder.example("⭕️ Type print") { p in
+  let observable = Observable<String>.just("something")
+
+  p < String(describing: type(of: observable))
+  p < String(describing: observable.Self)
+}
 
 
 example("publish, map, and grab the last") { print in
@@ -172,7 +178,7 @@ example("⭕️ Two subscriptions without sharing") { print in
 
   let dishes = ["🍕", "🥗", "🍣", "🌮", "🌯", "🍜"]
   var chef: Observable<String>!
-  Playarea.indent { p in
+  Binder.indent { p in
     chef = Observable<String>.create {
       observer in
       p < "👩🏽‍🍳 Chef ⚡️ subscribed, cooking!"
@@ -202,5 +208,5 @@ example("⭕️ Two subscriptions without sharing") { print in
 
 
 
-Playarea.done👑()
+Binder.done👑(needsIndefiniteExecution: true)
 
