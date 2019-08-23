@@ -5,7 +5,6 @@ import RxSwift
 import RxSwiftPlaygrounds
 
 
-
 Binder.example("⭕️🍦 Single Serve Cold Observable") { p in
   p % """
     The 🍦 ColdServe observable is a cold observable
