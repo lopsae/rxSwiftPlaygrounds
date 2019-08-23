@@ -47,7 +47,7 @@ Binder.commentParagraph("""
 
 Binder.example("⭕️ Printing shorthand operators") { p in
   p / "The `/` operator is a shorthand for `comment`"
-  p % "The `%` operator is a shorthand for `comment`"
+  p % "The `%` operator is a shorthand for `commentParagraph`"
   p < "The `<` operator is a shorthand for `print`"
 }
 

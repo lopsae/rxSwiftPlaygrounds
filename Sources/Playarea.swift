@@ -133,6 +133,8 @@ extension Binder {
     ///
     /// If `printsComments` is `false` then no operation is performed.
     public func commentParagraph(_ message: String) {
+      guard printsComments ?? Binder.printsComments else { return }
+
       comment(message)
       newLine()
     }

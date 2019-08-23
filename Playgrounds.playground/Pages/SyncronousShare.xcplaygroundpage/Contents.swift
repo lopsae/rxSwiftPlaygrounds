@@ -77,7 +77,7 @@ Binder.example("⭕️🎦 Forever & Replay Sharing") { p in
 
   p / "Second subscription receives as many elements as configured in `replay`"
   sharedChef.subscribe(onNext: {
-    print("✴️ Second: \($0)")
+    p < "✴️ Second: \($0)"
   })
 }
 
