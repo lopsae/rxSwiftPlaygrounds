@@ -6,8 +6,11 @@ import RxSwiftPlaygrounds
 
 
 Binder.root % """
+  Subjects are hot-observables since the subject has an internal state and any
+  subscriptions will connect to state at the moment of subscription
+
   The 📺 Broadcast subject and observable is a simple publish subject that
-  will print most observable interactions as to see how the subject behaves.
+  will print most observable interactions as to see how the subject behaves
   """
 
 Binder.root < "⚙️ Creating 📺 Broadcast subject & observable"
@@ -26,7 +29,7 @@ Binder.example("⭕️ Before & First subscription") { p in
   p < "Emitting ⚽️ before any subscriptions"
   subject.onNext("⚽️")
 
-  p % "Before any subscription the element is just a no-op"
+  p % "Emitting an element before any subscription is just a no-op"
 
   p < "Subscribing ❇️ First"
   broadcast.subscribe(
